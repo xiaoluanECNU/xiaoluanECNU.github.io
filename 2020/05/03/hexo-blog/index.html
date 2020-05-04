@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="charles的博客">
 <meta property="og:description" content="基于hexo创建blog简单入门">
 <meta property="article:published_time" content="2020-05-02T16:33:34.000Z">
-<meta property="article:modified_time" content="2020-05-04T13:55:08.877Z">
+<meta property="article:modified_time" content="2020-05-04T14:03:29.208Z">
 <meta property="article:author" content="charles">
 <meta property="article:tag" content="-blog">
 <meta name="twitter:card" content="summary">
@@ -348,7 +348,7 @@
 
 <h2 id="发布blog"><a href="#发布blog" class="headerlink" title="发布blog"></a>发布blog</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new blogname</span><br><span class="line">markdown 编辑 文件</span><br></pre></td></tr></table></figure>
 
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>文件.config.yml(hexo),更新如下内容</p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>npm install hexo-deployer-git –save<br>文件.config.yml(hexo),更新如下内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">url: https:&#x2F;&#x2F;%username.github.io</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:%username&#x2F;%username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
 <h2 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo start</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
