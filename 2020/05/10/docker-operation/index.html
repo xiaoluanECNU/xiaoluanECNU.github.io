@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="-docker," />
 
 
 
@@ -79,15 +79,16 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="description" content="docker基础实战">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://xiaoluanecnu.github.io/2020/05/02/hello-world/index.html">
+<meta property="og:title" content="docker_operation">
+<meta property="og:url" content="https://xiaoluanecnu.github.io/2020/05/10/docker-operation/index.html">
 <meta property="og:site_name" content="charles的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="article:published_time" content="2020-05-02T15:45:21.451Z">
-<meta property="article:modified_time" content="2020-05-03T15:47:18.872Z">
+<meta property="og:description" content="docker基础实战">
+<meta property="article:published_time" content="2020-05-10T14:34:38.000Z">
+<meta property="article:modified_time" content="2020-05-17T07:48:14.788Z">
 <meta property="article:author" content="charles">
+<meta property="article:tag" content="-docker">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://xiaoluanECNU.github.io/2020/05/02/hello-world/"/>
+  <link rel="canonical" href="https://xiaoluanECNU.github.io/2020/05/10/docker-operation/"/>
 
 
 
 
 
-  <title>Hello World | charles的博客</title>
+  <title>docker_operation | charles的博客</title>
   
 
 
@@ -251,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xiaoluanECNU.github.io/2020/05/02/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://xiaoluanECNU.github.io/2020/05/10/docker-operation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="charles">
@@ -268,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">docker_operation</h1>
         
 
         <div class="post-meta">
@@ -280,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-02T23:45:21+08:00">
-                2020-05-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-10T22:34:38+08:00">
+                2020-05-10
               </time>
             
 
@@ -290,6 +291,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/basic/" itemprop="url" rel="index">
+                    <span itemprop="name">basic</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -318,21 +341,21 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
+        <h1 id="docker基础实战"><a href="#docker基础实战" class="headerlink" title="docker基础实战"></a>docker基础实战</h1><a id="more"></a>
+<h2 id="基于docker部署nginx"><a href="#基于docker部署nginx" class="headerlink" title="基于docker部署nginx"></a>基于docker部署nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;搜索nginx镜像</span><br><span class="line">docker search nginx </span><br><span class="line">&#x2F;&#x2F;拉取nginx镜像</span><br><span class="line">docker pull nginx  </span><br><span class="line">&#x2F;&#x2F;查看所有镜像</span><br><span class="line">docker images </span><br><span class="line">&#x2F;&#x2F;复制生成一个images: repository-tag &#x3D;&#x3D; zhangj169&#x2F;ngninx-v3</span><br><span class="line">docker tag nginx:latest zhangj169&#x2F;nginx:v3</span><br><span class="line">&#x2F;&#x2F;删除nginx镜像</span><br><span class="line">docker rmi zhangj169&#x2F;nginx:v3 </span><br><span class="line">&#x2F;&#x2F;基于镜像生成一个容器，-p 映射本机端口与容器端口</span><br><span class="line">docker run -d -p 8080:80 --name nginx </span><br><span class="line">&#x2F;&#x2F;查看运行中的容器</span><br><span class="line">docker container ls</span><br><span class="line">&#x2F;&#x2F;查看所有状态的容器</span><br><span class="line">docker container ls -a </span><br><span class="line">&#x2F;&#x2F;进入容器内部</span><br><span class="line">docker exec -it containerID &#x2F;bin&#x2F;bash </span><br><span class="line">&#x2F;&#x2F;复制容器内部内容至本机命令  docker cp 容器ID:容器路径 本地路径</span><br><span class="line">docker cp containerID:&#x2F;var&#x2F;lag&#x2F;nginx .  </span><br><span class="line">docker cp containerID:&#x2F;etc&#x2F;nginx .</span><br><span class="line">docker cp containerID:&#x2F;usr&#x2F;share&#x2F;nginx .</span><br><span class="line">&#x2F;&#x2F;-v 关联本机文件与容器文件</span><br><span class="line">docker run -d -p 8080:8080 -p 18080:18080 -p 8000:8000 -v &quot;$(pwd)&#x2F;html&quot;:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html -v &quot;$(pwd)&#x2F;conf&quot;:&#x2F;etc&#x2F;nginx -v &quot;$(pwd)&#x2F;log&quot;:&#x2F;var&#x2F;log&#x2F;nginx --name nginx-mpaas nginx </span><br><span class="line">&#x2F;&#x2F;查看容器信息</span><br><span class="line">docker inspect containerID</span><br><span class="line">&#x2F;&#x2F;镜像保存tar包、加载tar包镜像</span><br><span class="line">docker save -o ***.tar REPOSITORY:Tag</span><br><span class="line">docker load -i ***.tar</span><br></pre></td></tr></table></figure>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="dockerfile常用命令-示例"><a href="#dockerfile常用命令-示例" class="headerlink" title="dockerfile常用命令 示例"></a>dockerfile常用命令 示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FROM alpine</span><br><span class="line">WORKDIR &#x2F;projects</span><br><span class="line">COPY .&#x2F;first-go &#x2F;projects&#x2F;</span><br><span class="line">EXPOSE 8090</span><br><span class="line">ENTRYPOINT [&quot;.&#x2F;gopher&quot;]</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h2 id="容器通信"><a href="#容器通信" class="headerlink" title="容器通信"></a>容器通信</h2><p>+容器与主机通信<br>host模式无需-p命令(mac不支持host模式)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-network host</span><br></pre></td></tr></table></figure>
+<p>+容器间通信</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--link containerName</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h2 id="nginx简单命令"><a href="#nginx简单命令" class="headerlink" title="nginx简单命令"></a>nginx简单命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -t  &#x2F;&#x2F;检查nginx配置正确性</span><br><span class="line">nginx -s reload &#x2F;&#x2F;重启nginx</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+
 
       
     </div>
@@ -348,6 +371,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"># -docker</a>
+          
+        </div>
+      
 
       
       
@@ -357,14 +386,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2020/05/03/hexo-blog/" rel="next" title="hexo-blog-basic">
+                <i class="fa fa-chevron-left"></i> hexo-blog-basic
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/05/03/hexo-blog/" rel="prev" title="hexo-blog-basic">
-                hexo-blog-basic <i class="fa fa-chevron-right"></i>
+              <a href="/2020/05/17/book-mysql%E5%AE%9E%E6%88%9845%E8%AE%B2/" rel="prev" title="book_mysql实战45讲">
+                book_mysql实战45讲 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -497,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker基础实战"><span class="nav-number">1.</span> <span class="nav-text">docker基础实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于docker部署nginx"><span class="nav-number">1.1.</span> <span class="nav-text">基于docker部署nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dockerfile常用命令-示例"><span class="nav-number">1.2.</span> <span class="nav-text">dockerfile常用命令 示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器通信"><span class="nav-number">1.3.</span> <span class="nav-text">容器通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx简单命令"><span class="nav-number">1.4.</span> <span class="nav-text">nginx简单命令</span></a></li></ol></li></ol></div>
             
 
           </div>
